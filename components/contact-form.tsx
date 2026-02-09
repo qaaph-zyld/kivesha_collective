@@ -28,12 +28,17 @@ export function ContactForm() {
     setIsLoading(true)
 
     try {
-      // In a real application, you would send this data to your backend or email service
-      console.log('Form submitted:', formData)
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
+      const form = e.target as HTMLFormElement
+      const body = new URLSearchParams(new FormData(form) as any).toString()
+
+      const res = await fetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      })
+
+      if (!res.ok) throw new Error('Form submission failed')
+
       toast.success('Thank you for your message! We\'ll get back to you soon.')
       setFormData({
         name: '',
@@ -50,7 +55,11 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" className="space-y-6">
+      <input type="hidden" name="form-name" value="contact" />
+      <p className="hidden">
+        <label>Don&apos;t fill this out: <input name="bot-field" /></label>
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
           <label htmlFor="name" className="block text-sm font-medium text-slate-700">

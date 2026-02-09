@@ -167,12 +167,14 @@ export default function Home() {
               {hero.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 text-lg font-semibold">
-                {hero.cta}
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button asChild className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 text-lg font-semibold">
+                <Link href="/contact">
+                  {hero.cta}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
-              <Button variant="outline" className="px-8 py-6 text-lg font-semibold border-white text-white hover:bg-white/10">
-                View Our Portfolio
+              <Button asChild variant="outline" className="px-8 py-6 text-lg font-semibold border-white text-white hover:bg-white/10">
+                <Link href="/#products">View Our Products</Link>
               </Button>
             </div>
             
@@ -214,7 +216,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-white">
+      <section id="about" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -245,8 +247,8 @@ export default function Home() {
                 ))}
               </div>
               
-              <Button className="bg-stone-800 hover:bg-stone-700 text-white">
-                View Our Portfolio
+              <Button asChild className="bg-stone-800 hover:bg-stone-700 text-white">
+                <Link href="/#products">View Our Products</Link>
               </Button>
             </div>
             <div className="relative">
@@ -260,7 +262,7 @@ export default function Home() {
       </section>
 
       {/* Products Section */}
-      <section className="py-20 bg-slate-50">
+      <section id="products" className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-stone-100 text-stone-800 dark:bg-stone-800/30 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-700/50">
@@ -323,9 +325,11 @@ export default function Home() {
             <p className="text-gray-600 dark:text-gray-300 mb-6">
               Not sure which plan is right for you? Let's talk about your specific needs.
             </p>
-            <Button variant="outline" className="border-indigo-600 text-indigo-600 hover:bg-indigo-50 dark:border-indigo-400 dark:text-indigo-400 dark:hover:bg-indigo-900/30">
-              Book a Free Consultation
-              <ArrowRight className="ml-2 h-4 w-4" />
+            <Button asChild variant="outline" className="border-stone-600 text-stone-600 hover:bg-stone-50 dark:border-stone-400 dark:text-stone-400 dark:hover:bg-stone-900/30">
+              <Link href="/contact">
+                Book a Free Consultation
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
           </div>
         </div>
@@ -339,12 +343,14 @@ export default function Home() {
             Schedule a free design consultation with our concrete artisans to discuss your project and get a personalized quote.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 text-lg font-semibold">
-              Book a Free Consultation
-              <ArrowRight className="ml-2 h-5 w-5" />
+            <Button asChild className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-6 text-lg font-semibold">
+              <Link href="/contact">
+                Book a Free Consultation
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
-            <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold">
-              View Our Portfolio
+            <Button asChild variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold">
+              <Link href="/#products">View Our Products</Link>
             </Button>
           </div>
           <p className="mt-6 text-stone-300 text-sm">

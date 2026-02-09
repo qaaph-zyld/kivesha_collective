@@ -2,6 +2,9 @@ import React from 'react';
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { Toaster } from "sonner";
 import { defaultMetadata } from "./metadata";
 
 export const metadata = defaultMetadata;
@@ -26,7 +29,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <SiteHeader />
+          <main>{children}</main>
+          <SiteFooter />
+          <Toaster position="bottom-right" richColors />
         </ThemeProvider>
       </body>
     </html>
