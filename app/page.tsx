@@ -46,18 +46,18 @@ export default function Home() {
   const results = [
     {
       icon: <TrendingUp className="w-8 h-8 text-green-500" />,
-      value: "5-10x",
-      label: "Average ROI for clients"
+      value: "15+",
+      label: "Years of experience"
     },
     {
       icon: <BarChart className="w-8 h-8 text-blue-500" />,
-      value: "300%+",
-      label: "Average revenue increase"
+      value: "500+",
+      label: "Projects completed"
     },
     {
       icon: <Clock className="w-8 h-8 text-purple-500" />,
-      value: "90 Days",
-      label: "To see significant results"
+      value: "2-6 wks",
+      label: "Typical project turnaround"
     }
   ]
 
@@ -191,29 +191,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured In Section */}
-      <section className="py-12 bg-stone-50 dark:bg-stone-900/50">
-        <div className="container mx-auto px-4">
-          <p className="text-center text-stone-500 dark:text-stone-400 mb-8 uppercase text-sm font-medium tracking-wider">FEATURED IN</p>
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-8 items-center justify-items-center opacity-80">
-            {[
-              { name: 'Architectural Digest', logo: 'AD' },
-              { name: 'Dwell', logo: 'Dwell' },
-              { name: 'Elle Decor', logo: 'ED' },
-              { name: 'Architectural Record', logo: 'AR' },
-              { name: 'Concrete Decor', logo: 'CD' },
-              { name: 'Design Milk', logo: 'DM' }
-            ].map((brand, i) => (
-              <div key={i} className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-white dark:bg-stone-800 shadow-md flex items-center justify-center text-stone-700 dark:text-stone-300 font-bold text-xl mb-2">
-                  {brand.logo}
-                </div>
-                <span className="text-sm text-stone-500 dark:text-stone-400">{brand.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* About Section */}
       <section id="about" className="py-20 bg-white">
@@ -308,13 +285,14 @@ export default function Home() {
                 </CardContent>
                 <CardFooter className="pt-0">
                   <Button 
+                    asChild
                     className={`w-full py-6 text-lg font-semibold ${
                       product.popular 
                         ? 'bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700'
                         : 'bg-stone-800 hover:bg-stone-700'
                     }`}
                   >
-                    {product.cta}
+                    <Link href="/contact">{product.cta}</Link>
                   </Button>
                 </CardFooter>
               </Card>
@@ -354,7 +332,7 @@ export default function Home() {
             </Button>
           </div>
           <p className="mt-6 text-stone-300 text-sm">
-            Or call us directly at <a href="tel:+15551234567" className="text-white font-medium hover:underline">(555) 123-4567</a>
+            Or <Link href="/contact" className="text-white font-medium hover:underline">send us a message</Link> to discuss your project
           </p>
         </div>
       </section>
